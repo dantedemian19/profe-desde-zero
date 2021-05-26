@@ -1,0 +1,3 @@
+﻿  profe-desde-zero.cpp
+C:\Users\dante\source\repos\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(103): warning C4715: 'tabhash': not all control paths return a value
+  profe-desde-zero.vcxproj -> C:\Users\dante\source\repos\profe-desde-zero\Debug\profe-desde-zero.exe

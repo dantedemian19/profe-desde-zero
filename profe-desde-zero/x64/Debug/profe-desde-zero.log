@@ -1,0 +1,4 @@
+﻿  profe-desde-zero.cpp
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(228,13): warning C4551: function call missing argument list
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(105): warning C4715: 'tabhash': not all control paths return a value
+  profe-desde-zero.vcxproj -> C:\Users\dante\Source\Repos\dantedemian19\profe-desde-zero\x64\Debug\profe-desde-zero.exe
