@@ -233,8 +233,10 @@ void tabhashow(thash& s, int i,int program) {
 void peligro(thash& hashs, int n, int program) {
     thash s = hashs;
     if (program == 6) {
-        for (int i = 1; i < n; i += 1) {
-            tabhashow(s, i, program);
+        if (n > 1) {
+            for (int i = 1; i < n; i += 1) {
+                tabhashow(s, i, program);
+            }
         }
         tabhashow(s, 0, program);
     }
@@ -245,7 +247,77 @@ void peligro(thash& hashs, int n, int program) {
     }
     //  WHAAAT A WOOOOONDERFUUUUL WOOOOORLLLLDDD
 }
+float promediolist(node start,float& promp,int& cantalum) { // saca el promedio de los valores de la lista
+    node z = start;
+    float prom = 0;
+    int i = 0;
+    while (z != NULL) {
+        i += 1;
+        prom += z->note;
+        z = z->sig;
+    }
+    promp += prom;
+    cantalum += i;
+    prom /= i;
+    return prom;
+};
+int contadorpedorro(node& start) {// devuelve el numero de nodos que hay
+    node z = start;
+    int i = 0;
+    while (z != NULL) {
+        i += 1;
+        z = z->sig;
+    }
+    return i;
+};
+node mayor(node start) { // saca el promedio de los valores de la lista
+    node z = start;
+    node higher = z;
+    while (z != NULL) {
+        if(z->note>higher->note){
+            higher = z;
+        }
+        z = z->sig;
+    }
+    return higher;
+};
+void mostarmayor(node& start, node& bestc, node& besty, float& promp, float& promt, int& cantalum, int& i) {
+    cout << "    curso: " << i << " tiene un promedio de: ";
+    promt = promediolist(start, promp, cantalum);
+    cout << promt << " (puntos)" << "\n";
+    bestc = mayor(start);
+    if (besty == NULL) besty = bestc;
+    if (bestc->note > besty->note) besty = bestc;
+    cout << "\t el alumno con mejor nota de este curso es: " << bestc->campoN << " id: " << bestc->num << " con: " << " con: " << bestc->note << " (puntos)" << "\n";
+    cout << " -----------------------------------" << "\n";
+};
+void citotenescovid(thash& hashs, int n) {
+    float promt = 0, promp = 0;//variables para el promedio por curso y para todo el colegio
+    int cantalum = 0;
+    if (hashs != NULL) {
+        thash hashes = hashs->sig;
+        node start = hashes->start;
+        node bestc = NULL, besty = NULL;// variables para el alumno con mayor nota por curso y para todo el colegio
+        if (n > 1) {
+            for (int i = 1; i < n; i += 1) {
+                if (start != NULL) {
+                    mostarmayor(start, bestc, besty, promp, promt, cantalum, i);
+                }
+                if (hashes->sig != NULL) {
+                    hashes = hashes->sig;
+                    start = hashes->start;
+                }
+            }
+        }
+        hashes = hashs;
+        start = hashes->start;
+        mostarmayor(start, bestc, besty, promp, promt, cantalum, n);
+        cout << "el promedio del colegio es de:  " << promp/cantalum << " (puntos)" << "\n";
+        cout << "\t el alumno con mejor nota del colegio es: " << besty->campoN << " id: " << besty->num << " con: " << besty->note << " (puntos)" << "\n";
+    }
+};
 // funciones globales
+
 void menu1() { // menu
     //advice();
     string name = " ejercicio 1 \n";
@@ -259,6 +331,10 @@ void menu1() { // menu
     cin >> namef;
     namef = namef + ".txt";
     read(namef, hashs, hashf, n,program);
+    if(n<1){
+        cout << "   ingresar el numero de tablas de hash: ";
+        cin >> n;
+    }
     cls();
     while (w != exit) { // its a easy menu
         enter = false;
@@ -304,6 +380,10 @@ void menu2() { // menu
     cin >> namef;
     namef = namef + ".txt";
     read(namef, hashs, hashf, n, program);
+    if (n < 1) {
+        cout << "   ingresar el numero de cursos: ";
+        cin >> n;
+    }
     cls();
     while (w != exit) { // its a easy menu
         enter = false;
@@ -329,7 +409,7 @@ void menu2() { // menu
             pause();
             break;
         case 3:
-
+            citotenescovid(hashs, n);
             pause();
             break;
         case exit:
