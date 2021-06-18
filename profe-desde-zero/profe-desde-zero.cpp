@@ -4,8 +4,6 @@
 #include <string>
 #include <fstream>
 
-using namespace std;
-
 // variables globales
 #define space 32
 #define up 72
@@ -14,29 +12,36 @@ using namespace std;
 #define esc 27
 #define back 8
 
-struct list {// definicion de la estructura
+using namespace std;
+
+class list {// definicion de la estructura
+    public:
     int num = 0;//valor del nodo
     int note = 0;//valor del nodo
     int curso = 0;//valor del nodo
     string campoN = "";// valor campoN?
-    struct list* sig = NULL;// apunta al nodo siguiente
-    struct list* ant = NULL;// apunta al nodo anterior
+    list* sig = NULL;// apunta al nodo siguiente
+    list* ant = NULL;// apunta al nodo anterior
 };
-typedef struct list* node;//definicion del tipo
+typedef list* node;//definicion del tipo
 
-struct list2 {// definicion de la estructura
-    int hash = 0;//valor de la tabla de hash
-    int num = 0;// valor de la cantidad de nodos en el hash
-    struct list* start = NULL;// apunta al valor de inicio del hash
-    struct list* end = NULL;// apunta al valor de final del hash
-    struct list2* sig = NULL;// apunta al nodo siguiente
-    struct list2* ant = NULL;// apunta al nodo anterior
+class list2 {// definicion de la estructura
+public:
+    int hash = 0;//valor del nodo
+    int num = 0;//valor del nodo
+    int curso = 0;//valor del nodo
+    string campoN = "";// valor campoN?
+    list2* sig = NULL;// apunta al nodo siguiente
+    list2* ant = NULL;// apunta al nodo anterior
+    list* start = NULL;
+    list* end = NULL;
 };
-typedef struct list2* thash;//definicion del tipo
+typedef list2* thash;//definicion del tipo
 
 // variables globales
 
 // funciones globales
+
 void wait() {// hace esperar al usuario 2 segundos
     cout << "loading \n";
     Sleep(2000);
@@ -105,7 +110,7 @@ thash tabhash(thash& s, int n, int i) { // verifica segun (i % n) en que lista d
 };
 void ingresar(node& listf, node& lists,int& n, int& valor, string codn,int note,int curso, int program) { //ingresa un valor nuevo al la lista
     //ingreso de un nodo nuevo a la lista
-    node z = new(struct list);
+    node z = new(list);
     z->num = (int)valor;
     z->campoN = (string)codn;
     if (program == 6) { // para el ejercio 6 tiene dos variables mas que asignar
@@ -125,7 +130,7 @@ void ingresar(node& listf, node& lists,int& n, int& valor, string codn,int note,
 
 void ingresarhash(thash& listf, thash& lists, int valor) { //ingresa un valor nuevo al la lista
     //ingreso de un nodo nuevo a la lista
-    thash z = new(struct list2);
+    thash z = new(list2);
     z->hash = (int)valor;
     if (lists != NULL) {
         listf->sig = z;

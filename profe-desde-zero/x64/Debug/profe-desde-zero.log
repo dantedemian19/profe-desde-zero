@@ -1,4 +1,8 @@
 ﻿  profe-desde-zero.cpp
-C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(227,13): warning C4551: function call missing argument list
-C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(105): warning C4715: 'tabhash': not all control paths return a value
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(133,31): warning C4099: 'list2': type name first seen using 'class' now seen using 'struct'
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(28): message : see declaration of 'list2'
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(151,31): warning C4099: 'list': type name first seen using 'class' now seen using 'struct'
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(17): message : see declaration of 'list'
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(232,13): warning C4551: function call missing argument list
+C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\profe-desde-zero\profe-desde-zero.cpp(110): warning C4715: 'tabhash': not all control paths return a value
   profe-desde-zero.vcxproj -> C:\Users\dante\source\repos\dantedemian19\profe-desde-zero\x64\Debug\profe-desde-zero.exe
